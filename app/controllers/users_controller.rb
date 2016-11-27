@@ -10,7 +10,15 @@ class UsersController < ApplicationController
       password: params[:password], 
       password_confirmation: params[:password_confirmation]
       )
-    
+    if user.save
+      session[:user_id] = user.id
+      flash[:successful] = "Successfully created user!"
+      redirect_to '/contacts'
+    else
+      flash[:warning] = "User account could not be created"
+      redirect_to '/signup'
+    end
+
 
   end
 end
