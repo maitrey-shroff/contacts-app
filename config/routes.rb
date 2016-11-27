@@ -13,5 +13,8 @@ Rails.application.routes.draw do
 
   delete "/contacts/:id", to: "contacts#destroy"
 
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
 
 end
